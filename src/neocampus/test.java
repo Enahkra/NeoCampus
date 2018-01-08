@@ -6,5 +6,5 @@ package neocampus;
  * @author Samuel
  */
 public class test {
-    retestojosjdfdlsdjsljflsjflsjflsjflsj
+    System.out.println("hello world");
 }
