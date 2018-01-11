@@ -13,7 +13,7 @@ import java.util.ListIterator;
  *
  * @author moussabrahim
  */
-public class FilDeDiscussion {
+public class FilDeDiscussion implements Utilisateur , Serveur {
     
     private int idFilDeDiscussion;
     private String titre ;
@@ -56,7 +56,45 @@ public class FilDeDiscussion {
     public void setListeMessage(List listeMessage) {
         this.listeMessage = listeMessage;
     }
+    
+    public void creerTicket ()
+    {
+        
+    }
    
+    public void ecrireMessage ()
+    {
+        
+    }
+    
+    public void ajouerUtilisateur()
+    {
+        
+    }
+    public void modifierUtilisateur()
+    {
+        
+    }
+    public void supprimerUtilisateur ()
+    {
+        
+    }
+    public void ajouterGroupe()
+    {
+        
+    }
+    public void modifierGroupe()
+    {
+        
+    }
+    public void supprimerGroupe()
+    {
+        
+    }
+    public void gererAdhesion()
+    {
+        
+    }
    
   
     
