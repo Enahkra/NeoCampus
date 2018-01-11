@@ -19,14 +19,47 @@ public class FilDeDiscussion {
     private String titre ;
    List listeMessage = new ArrayList() ;
    
-   public FilDeDiscussion (int idFilDiscussion, String titreF, String message )
+   /*public FilDeDiscussion (int idFilDiscussion, String titreF, String message )
    {
        idFilDeDiscussion = idFilDiscussion;
        titre = titreF ;
        listeMessage.add(message);
        
        
-   }
+   }*/
+
+    public FilDeDiscussion(int idFilDeDiscussion, String titre) {
+        this.idFilDeDiscussion = idFilDeDiscussion;
+        this.titre = titre;
+    }
+
+    public int getIdFilDeDiscussion() {
+        return idFilDeDiscussion;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public List getListeMessage() {
+        return listeMessage;
+    }
+
+    public void setIdFilDeDiscussion(int idFilDeDiscussion) {
+        this.idFilDeDiscussion = idFilDeDiscussion;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public void setListeMessage(List listeMessage) {
+        this.listeMessage = listeMessage;
+    }
+   
+   
+  
+    
     
     
 }
