@@ -42,6 +42,5 @@ public class Run {
             
         }
         interfaceGraphique.NewJFrame.lI();
-        //interfaceGraphique.NewJFrame.jList1ComponentAdded();
     }
 }

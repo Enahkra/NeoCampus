@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import javax.swing.event.ListSelectionEvent;
 
 /**
  *
@@ -56,6 +57,11 @@ public class NewJFrame extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
 
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jList1);
 
         jButton1.setText("Refresh list");
@@ -126,7 +132,6 @@ public class NewJFrame extends javax.swing.JFrame {
         try {
             while(result.next()){
                 for(int i = 2; i <= resultMeta.getColumnCount(); i += 2)
-                    //((javax.swing.DefaultListModel)jList1.getModel()).addElement(result.getObject(i).toString());
                     DLM.addElement(result.getObject(i).toString());
             }
         } catch (SQLException ex) {
@@ -135,7 +140,16 @@ public class NewJFrame extends javax.swing.JFrame {
         jList1.setModel(DLM);
     
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        String selected = "" + jList1.getSelectedIndex();
+           System.out.print ("item selected = " + selected);
+           System.out.println (" - value = " + jList1.getSelectedValue());
+           
+           //afficher les messages correspondant à l'id du thread_title
+    }//GEN-LAST:event_jList1MouseClicked
  
+   
 public static void lI() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
