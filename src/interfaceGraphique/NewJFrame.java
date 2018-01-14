@@ -125,7 +125,7 @@ public class NewJFrame extends javax.swing.JFrame {
         
         try {
             while(result.next()){
-                for(int i = 1; i <= resultMeta.getColumnCount(); i++)
+                for(int i = 2; i <= resultMeta.getColumnCount(); i += 2)
                     //((javax.swing.DefaultListModel)jList1.getModel()).addElement(result.getObject(i).toString());
                     DLM.addElement(result.getObject(i).toString());
             }
