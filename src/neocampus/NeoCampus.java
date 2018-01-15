@@ -17,8 +17,8 @@ public class NeoCampus {
 
   public static void main(String[] args) throws SQLException {
         Connection conn = database.Connect.lC();
-        //interfaceGraphique.NewJFrame.lI();
-        interfaceGraphique.NewJFrameBDD.lIBDD();
+        interfaceGraphique.NewJFrame.lI();
+        //interfaceGraphique.NewJFrameBDD.lIBDD();
     }
 }
 
