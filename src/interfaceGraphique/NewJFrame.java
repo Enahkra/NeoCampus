@@ -118,7 +118,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-    private int get_thread_id(){
+    private int get_thread_id() throws SQLException{
         Connection conn = database.Connect.lC();
         Statement state = null; 
         String str;
@@ -151,8 +151,11 @@ public class NewJFrame extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+        result.close();
+      state.close();
         return thread_id;
     }
+    
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         String str2 = jTextField1.getText();
         jTextArea1.append("\n"+str2);
@@ -176,6 +179,17 @@ public class NewJFrame extends javax.swing.JFrame {
         ResultSetMetaData resultMeta = null;
         try {
             resultMeta = resultMeta = result.getMetaData();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            result.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            state.close();
         } catch (SQLException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -212,6 +226,17 @@ public class NewJFrame extends javax.swing.JFrame {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         jList1.setModel(DLM);
+        
+        try {
+            result.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            state.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -282,10 +307,16 @@ public class NewJFrame extends javax.swing.JFrame {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
            
-           //afficher les messages correspondant à l'id du thread_title
-           //String str = jTextField1.getText();
-        //jTextArea1.append("\n"+str);
-        //jTextField1.setText("");
+        try {
+            result.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            state.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jList1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -304,6 +335,17 @@ public class NewJFrame extends javax.swing.JFrame {
             state.executeUpdate("INSERT INTO threads (thread_id, thread_title) VALUES (DEFAULT, '"+str+"')");
            
             
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            result.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            state.close();
         } catch (SQLException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
