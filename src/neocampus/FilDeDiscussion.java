@@ -16,6 +16,7 @@ import java.util.ListIterator;
 public class FilDeDiscussion implements Utilisateur , Serveur {
     
     private int idFilDeDiscussion;
+    private int idGroupe;
     private String titre ;
    List listeMessage = new ArrayList() ;
    
