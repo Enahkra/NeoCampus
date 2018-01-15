@@ -6,10 +6,7 @@
 package neocampus;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  *
@@ -18,7 +15,21 @@ import java.sql.Statement;
 public class Run {
     public static void main(String[] args) throws SQLException {
         Connection conn = database.Connect.lC();
-        //L'objet ResultSet contient le résultat de la requête SQL
+        //interfaceGraphique.NewJFrame.lI();
+        interfaceGraphique.NewJFrameBDD.lIBDD();
+    }
+}
+
+
+
+
+
+
+
+
+/*
+
+//L'objet ResultSet contient le résultat de la requête SQL
         try ( //Création d'un objet Statement
                 Statement state = conn.createStatement(); //L'objet ResultSet contient le résultat de la requête SQL
                 ResultSet result = state.executeQuery("SELECT * FROM threads")) {
@@ -39,8 +50,4 @@ public class Run {
                 System.out.println("\n---------------------------------");
                 
             }
-            
-        }
-        interfaceGraphique.NewJFrame.lI();
-    }
-}
+*/
