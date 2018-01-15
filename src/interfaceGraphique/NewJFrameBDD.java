@@ -5,6 +5,13 @@
  */
 package interfaceGraphique;
 
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.DefaultListModel;
+import javax.swing.event.ListSelectionEvent;
+
 /**
  *
  * @author Samuel
@@ -130,7 +137,12 @@ public class NewJFrameBDD extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-       
+      button1.addActionListener(new ActionListener () {
+           public void actionPerformed (){
+               NewClass nc = new NewClass();
+               
+           }
+       });
        
     }//GEN-LAST:event_button1ActionPerformed
 
@@ -187,4 +199,11 @@ public class NewJFrameBDD extends javax.swing.JFrame {
     private java.awt.Button button7;
     private javax.swing.JFrame jFrame1;
     // End of variables declaration//GEN-END:variables
+
+
+
 }
+
+
+
+ 
