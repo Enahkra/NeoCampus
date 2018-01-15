@@ -106,8 +106,6 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                                                
-        
         Connection conn = database.Connect.lC();
         Statement state = null; 
         try {
@@ -142,11 +140,76 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
-        String selected = "" + jList1.getSelectedIndex();
+        String str = "";
+        jTextArea1.setText("");
+        int thread_id = 0;
+        
+        /*String selected = "" + jList1.getSelectedIndex();
            System.out.print ("item selected = " + selected);
-           System.out.println (" - value = " + jList1.getSelectedValue());
+           System.out.println (" - value = " + jList1.getSelectedValue());*/
+           
+           Connection conn = database.Connect.lC();
+        Statement state = null; 
+        try {
+            state = conn.createStatement();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ResultSet result = null;
+        try {
+            result = state.executeQuery("SELECT * FROM threads WHERE thread_title = '"+jList1.getSelectedValue()+"'");
+           
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ResultSetMetaData resultMeta = null;
+        try {
+            resultMeta = resultMeta = result.getMetaData();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            while(result.next()){
+                str = result.getObject(1).toString();
+                thread_id = Integer.parseInt(str);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            result = state.executeQuery("SELECT * FROM messages WHERE thread_id = "+thread_id);
+           
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        resultMeta = null;
+        try {
+            resultMeta = resultMeta = result.getMetaData();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        try {
+            while(result.next()){
+                
+                for(int i = 2; i <= resultMeta.getColumnCount(); i += 2){
+                    str = result.getObject(i).toString();
+                    jTextArea1.append("\n" + str);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
            
            //afficher les messages correspondant à l'id du thread_title
+           //String str = jTextField1.getText();
+        //jTextArea1.append("\n"+str);
+        //jTextField1.setText("");
     }//GEN-LAST:event_jList1MouseClicked
  
    
